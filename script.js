@@ -30,12 +30,14 @@ function drawRainbow(e){
 
 function hoverDraw(){
     document.querySelectorAll('.grid').forEach(
-        grid => grid.addEventListener('mouseover', (e) => {
-            if (drawStyle === 'Marker') drawMarker(e);
-            else if (drawStyle === 'Pencil') drawPencil(e);
-            else if (drawStyle === 'Rainbow') drawRainbow(e);
-            else marker(e);
-        })
+        grid => ['mouseover', 'click'].forEach(
+            touch => grid.addEventListener(touch, (e) => {
+                if (drawStyle === 'Marker') drawMarker(e);
+                else if (drawStyle === 'Pencil') drawPencil(e);
+                else if (drawStyle === 'Rainbow') drawRainbow(e);
+                else marker(e);
+            })
+        )
     )
 }
 
