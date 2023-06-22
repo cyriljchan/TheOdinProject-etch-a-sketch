@@ -53,7 +53,7 @@ function setGrid(size) {
     if (gridSize > 100) {alert("Error: input should not be more than 100"); gridSize = 16};
     if (gridSize < 0) {alert("Error: input should not be less than 0"); gridSize = 16};
     if (gridSize === "") {alert("Error: input is empty"); gridSize = 16};
-    if (typeof(gridSize) !== 'number') {alert("Error: input is not typeOf number"); gridSize = 16};
+    if (isNaN(gridSize) || isNaN(parseInt(gridSize))) {alert("Error: input is not a valid number"); gridSize = 16};
 
     for (let i = 0; i < gridSize; i++) {
         const row = document.createElement('div');
