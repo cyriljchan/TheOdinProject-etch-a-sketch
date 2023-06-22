@@ -49,8 +49,11 @@ function resetColor() {
 
 function setGrid(size) {
     document.querySelector('.grid-board').textContent = '';
-    let gridSize = (size==undefined) ? prompt("Please enter the desired grid size.") : 16;
-    if (gridSize > 100) {alert("Please enter a number not more than 100."); return}
+    let gridSize = (size===undefined) ? prompt("Please enter the desired grid size.") : 16;
+    if (gridSize > 100) {alert("Error: input should not be more than 100"); gridSize = 16};
+    if (gridSize < 0) {alert("Error: input should not be less than 0"); gridSize = 16};
+    if (gridSize === "") {alert("Error: input is empty"); gridSize = 16};
+    if (typeof(gridSize) !== 'number') {alert("Error: input is not typeOf number"); gridSize = 16};
 
     for (let i = 0; i < gridSize; i++) {
         const row = document.createElement('div');
